@@ -7,9 +7,20 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.*;
 
+/**
+ * The {@code MyApplication} class is the entry point for the {@link @SpringBootApplication}.
+ * It configures a custom logger and starts the application.
+ */
 @SpringBootApplication
 public class MyApplication {
 
+	/**
+	 * Get a custom logger for the specified class.
+	 *
+	 * @param clazz The class for which the logger is created.
+	 * @param <T>   The type of the class.
+	 * @return A customized logger.
+	 */
 	public static <T> Logger getLogger(Class<T> clazz) {
 
 		// We create a Logger using java.util.logging, with the name "MyApplication"
@@ -51,7 +62,12 @@ public class MyApplication {
 		return logger;
 	}
 
-
+	/**
+	 * The main method of the application.
+	 *
+	 * @param args Command-line arguments.
+	 * @throws URISyntaxException If there is an issue with URI syntax.
+	 */
 	public static void main(String[] args) throws URISyntaxException {
 		Logger logger = getLogger(MyApplication.class);
 
@@ -67,6 +83,7 @@ public class MyApplication {
 		// We start the app
 		SpringApplication.run(MyApplication.class, args);
 
-		logger.info("MyApplication successfully started at " + new URI("http://localhost:8080/"));
+		logger.info("MyApplication successfully started at port 8080!");
+		logger.info("Consult H2 Database here " + new URI("http://localhost:8080/h2-ui/"));
 	}
 }
