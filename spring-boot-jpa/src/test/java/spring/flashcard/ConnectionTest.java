@@ -1,7 +1,6 @@
 package spring.flashcard;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.SpringApplication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,14 +14,12 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
-/**
- * The {@link ConnectionTest} class is a JUnit test class for testing database connection setup.
- * It ensures that the application can establish a connection to the database using the properties
- * defined in the 'application.properties' file.
- */
 class ConnectionTest {
 
     private final Logger logger = MyApplication.getLogger(ConnectionTest.class);
+
+    // All tests are located in test/
+    // Let's test the connection to the database
 
     /**
      * Asserts the establishment of a SQL database connection.
@@ -31,10 +28,8 @@ class ConnectionTest {
      */
     @Test
     void assertSQLConnection() {
-        // We start the app
-        String[] args = new String[0];
-        SpringApplication.run(MyApplication.class, args);
 
+        MyApplication.connect();
         URL resourceUrl = getClass().getClassLoader().getResource("application.properties");
         Properties properties = new Properties();
 
@@ -50,7 +45,7 @@ class ConnectionTest {
                 Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 
                 assertNotNull(connection, "Failed to establish a connection");
-                logger.info("Test passed: Database connection established successfully: " + connection.getMetaData().getDatabaseProductName());
+                logger.info("Test 1 passed: Database connection established successfully: " + connection.getMetaData().getDatabaseProductName());
 
                 connection.close(); // Close the connection
             }
@@ -58,4 +53,5 @@ class ConnectionTest {
             fail("Test failed: " + e.getMessage());
         }
     }
+
 }

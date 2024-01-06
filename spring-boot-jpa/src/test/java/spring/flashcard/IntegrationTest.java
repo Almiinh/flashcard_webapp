@@ -15,31 +15,33 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * The {@link IntegrationTest} class contains integration tests for the application.
- * It verifies the status code of the web server and checks if the response contains valid JSON data.
- */
 public class IntegrationTest {
 
     Logger logger = MyApplication.getLogger(IntegrationTest.class);
 
+    // Let's try further integration tests of the frontend:
+    // - a backend status code test
+    // - a REST API JSON payload test
+
     /**
      * Test the HTTP status code of the web server.
-     * This test method makes an HTTP GET request to the application's root URL and checks
+     * This test method makes an HTTP GET request to the database URL and checks
      * if the response code is 200 (OK).
      *
      * @throws IOException if there is an issue with the HTTP connection
      */
     @Test
-    public void testStatusCode() throws IOException {
-        URL url = new URL("http://localhost:8081/");
+    public void testBackendStatusCode() throws IOException {
+        MyApplication.connect();
+
+        URL url = new URL("http://localhost:8080/h2-ui/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         int responseCode = connection.getResponseCode();
 
         // Assert that the HTTP response code is 200 (OK)
         assertEquals(responseCode, HttpStatus.OK.value());
-        logger.info("Test 2 passed: Website Server has started");
+        logger.info("Test 2 passed: Backend Server has started");
 
         connection.disconnect();
     }
@@ -53,7 +55,9 @@ public class IntegrationTest {
      * @throws JSONException if there is an issue parsing the JSON response
      */
     @Test
-    public void testIfJSON() throws IOException, JSONException {
+    public void testRestApi() throws IOException, JSONException {
+        MyApplication.connect();
+
         URL url = new URL("http://localhost:8080/api/cards");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -68,10 +72,14 @@ public class IntegrationTest {
         }
         JSONArray payload = new JSONArray(content.toString());
         assertNotNull(payload);
-        logger.info("Test 3 passed: JSON payload successfully found: \n" + payload);
+        logger.info("Test 3 passed: REST API JSON payload successfully found: \n" + payload);
         // Assert that the HTTP response is JSON
 
         connection.disconnect();
     }
+
+    // Now let's run all tests at once:
+    // First with maven
+    // Then with IntelliJ
 
 }

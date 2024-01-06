@@ -2,6 +2,7 @@ package spring.flashcard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -81,9 +82,18 @@ public class MyApplication {
 		logger.finest("This is the finest level message");
 
 		// We start the app
-		SpringApplication.run(MyApplication.class, args);
+		SpringApplication.run(MyApplication.class);
 
 		logger.info("MyApplication successfully started at port 8080!");
 		logger.info("Consult H2 Database here " + new URI("http://localhost:8080/h2-ui/"));
+	}
+
+	public static ConfigurableApplicationContext context;
+
+	public static void connect() {
+		if (context != null)
+			return;
+		// We start the app
+		context = SpringApplication.run(MyApplication.class);
 	}
 }
