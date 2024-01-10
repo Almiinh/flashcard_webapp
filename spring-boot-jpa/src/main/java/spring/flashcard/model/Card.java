@@ -31,6 +31,7 @@ public class Card {
     @Column(name = "category")
     private String category;
 
+    /** Default constructor */
     public Card() {
     }
 

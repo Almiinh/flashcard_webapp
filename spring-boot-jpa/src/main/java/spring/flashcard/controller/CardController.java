@@ -27,6 +27,11 @@ public class CardController {
 
     Logger logger = Logger.getLogger(CardController.class.getSimpleName());
 
+    /** Default constructor */
+    public CardController() {
+
+    }
+
     /**
      * Retrieve a list of flashcards, optionally filtered by word.
      * Trigger: GET request to "/api/cards"

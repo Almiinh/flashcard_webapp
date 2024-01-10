@@ -11,7 +11,18 @@ import java.util.List;
  * of flashcards based on their category or word.
  */
 public interface CardRepository extends JpaRepository<Card, Long> {
+
+    /**
+     * Query categories containing the sequence of character in the database
+     * @param category The sequence of character to query
+     * @return
+     */
     List<Card> findByCategoryContaining(String category);
 
+    /**
+     * Query words containing the sequence of character in the database
+     * @param word The sequence of character to query
+     * @return
+     */
     List<Card> findByWordContaining(String word);
 }
