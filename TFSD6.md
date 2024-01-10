@@ -1,25 +1,28 @@
 # TFSD TODO 6 : Document, license, publish, maintain your software
 
-### Declare a FOSS LICENSE
-Following this website https://choosealicense.com/, we opted for the most permissive one, the MIT License. See the LICENSE.txt on GitHub.
+### 1. Declare a FOSS LICENSE
+Following this website https://choosealicense.com/, we opted for the most permissive one, the MIT License. See the See [LICENSE](LICENSE.txt). on GitHub.
 
-### Write a small but canonical README file 
+### 2. Write a small but canonical README file 
 See the README.md on GitHub.
 
-### Add technical documentation to the code (see slides for what is a technical documentation)
-We added a maven plugin that generates Javacode. We can generate the java code by adding Javadoc comment strings beggining by `/** My doc comment */`
-above each fields and methods, and then run this command that generates html pages at `target/site/apidocs`
+### 3. Add technical documentation to the code (see slides for what is a technical documentation)
+We focused only on the Java backend, since we don't know about javascript documentation yet.
+
+We can generate the java code by adding Javadoc comment strings beggining by `/** My doc comment */` above each fields and methods.
+
+Afterwards, we run this command that generates html pages at `target/site/apidocs` that uses a maven plugin that generates Javadoc HTML pages.
 
 ```
 mvn javadoc:javadoc
 ```
 
-See the documentation more in details on GitHub : https://github.com/Almiinh/flashcard_webapp/
+See the documentation more in details here : https://github.com/Almiinh/flashcard_webapp/target/site/apidocs/
  
-### Manually create a release on your code hosting platform
+### 4. Manually create a release on your code hosting platform
 We set the tag, the release title and description. Github takes charges of delivering .zip and .tar.gz compressed archives of the source code.
-See here : example of https://github.com/Almiinh/flashcard_webapp/releases/tag/v0.0.1
+See this tag [v0.0.1](https://github.com/Almiinh/flashcard_webapp/releases/tag/v0.0.1)
 
-### Write and publish a small but canonical documentation (see slides for what a canonical documentation contains in addition to just technical documentation)
-See the README.md on GitHub. 
+### 5. Write and publish a small but canonical documentation (see slides for what a canonical documentation contains in addition to just technical documentation)
+See the [README.md](README.md)
 

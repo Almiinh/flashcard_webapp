@@ -1,0 +1,25 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # Steps to build your documentation here
+    - name: Build Documentation
+      run: |
+        cd spring-boot-jpa/
+        mvn javadoc:javadoc
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .spring-boot-jpa/target/site/apidocs/
