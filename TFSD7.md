@@ -29,12 +29,12 @@ To run the docker container, execute the following commands:
 cd spring-boot-jpa/
 mvn install
 docker build -t flashcard_backend .
-docker run -p 8080:8080 flashcard_backend 
+docker run -p 8080:8080 flashcard_backend
 ```
 
 We can change the PORT environment variable if needed with the -e option and run this instead. (Default port is `8080`)
 ```
-docker run -p 9090:9090 -e PORT=9090 flashcard_backend 
+docker run -p 9090:9090 -e PORT=9090 flashcard_backend
 ```
 
 ### 3. Dockerize your vue.js application and list the steps I need to follow to run this locally. The port where the application is deployed should be configurable as an environment variable
@@ -42,8 +42,13 @@ docker run -p 9090:9090 -e PORT=9090 flashcard_backend
 To run the docker container, execute the following commands:
 ```
 cd spring-boot-jpa/
-docker build -t flashcard_backend .   
-docker run -p 127.0.0.1:8080:8080 flashcard_backend 
+docker build -t flashcard_frontend .
+docker run -p 8081:80 flashcard_frontend
+```
+
+We can change the PORT environment variable if needed with the -e option and run this instead. (Default port is `8081` with nginx listening at port `80`)
+```
+docker run -p 6060 -e PORT=6060 flashcard_frontend
 ```
 
 ### 4. Create a multi-container Docker application with Docker Compose to deploy your Web application locally (back + front) and list the steps I need to follow to run this. The ports should be configurable as environment variables.
