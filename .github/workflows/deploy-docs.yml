@@ -23,9 +23,4 @@ jobs:
       run: |
         cd spring-boot-jpa/
         mvn javadoc:javadoc
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./spring-boot-jpa/target/site/apidocs
+        mv /home/runner/work/flashcard_webapp/flashcard_webapp/spring-boot-jpa/target/site/apidocs/ /home/runner/work/flashcard_webapp/docs/

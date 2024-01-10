@@ -38,21 +38,9 @@ After action execution it will return the changelog and additional information a
 
 ### 4. On the master branch only: automate the publication of your documentation with GitHub pages 
 
+In the Github repository **settings**, we set up the Github Pages to look into `/docs/`
+
 The workflow [Deploy Documentation](./.github/workflows/deploy-docs.yml) is triggered on pushes to the `main` branch.
 
 - It checks out the repository and builds the documentation (you'll need to modify these steps to fit your documentation setup).
-- The `peaceiris/actions-gh-pages@v3` action is used to deploy the built documentation to the gh-pages branch. GitHub Pages will then automatically publish content from this branch.
-
-In the Github repository **settings**,  we create actions quite simply using `peaceiris/actions-gh-pages@v3`.
-- We create the `gh-pages` branch
-- Go to the "Pages" section.
-- Select gh-pages branch as source.
-- Choose the folder where the documentation is located
-
-Unfortunately, we couldn't publish the page correctly as the action encountered access errors:
-```
-  /usr/bin/git push origin gh-pages
-  remote: Permission to Almiinh/flashcard_webapp.git denied to github-actions[bot].
-  fatal: unable to access 'https://github.com/Almiinh/flashcard_webapp.git/': The requested URL returned error: 403
-  Error: Action failed with "The process '/usr/bin/git' failed with exit code 128"
-```
+- It moves docs from `target/site/apidocs/` to `docs/`

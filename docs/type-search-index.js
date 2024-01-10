@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"spring.flashcard.model","l":"Card"},{"p":"spring.flashcard.controller","l":"CardController"},{"p":"spring.flashcard.repository","l":"CardRepository"},{"p":"spring.flashcard","l":"MyApplication"}];updateSearchResults();
