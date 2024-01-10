@@ -30,8 +30,10 @@ We insert a simple action in the [Create Release](.github/workflows/create-relea
 After action execution it will return the changelog and additional information as step output. You can use it in any follow-up step by referencing the output by referencing it via the id of the step. For example build_changelog.
 
 ```yaml
-# ${{steps.{CHANGELOG_STEP_ID}.outputs.changelog}}
-${{steps.build_changelog.outputs.changelog}}
+    name: Create Release
+    ...
+    with:
+      body: ${{steps.build_changelog.outputs.changelog}}
 ```
 
 ### 4. On the master branch only: automate the publication of your documentation with GitHub pages 
@@ -39,9 +41,10 @@ ${{steps.build_changelog.outputs.changelog}}
 The workflow [Deploy Documentation](./.github/workflows/deploy-docs.yml) is triggered on pushes to the `main` branch.
 
 - It checks out the repository and builds the documentation (you'll need to modify these steps to fit your documentation setup).
-- The peaceiris/actions-gh-pages@v3 action is used to deploy the built documentation to the gh-pages branch. GitHub Pages will then automatically publish content from this branch.
+- The `peaceiris/actions-gh-pages@v3` action is used to deploy the built documentation to the gh-pages branch. GitHub Pages will then automatically publish content from this branch.
 
-We then : 
+In the Github repository **settings**,  we create actions quite simply using `peaceiris/actions-gh-pages@v3`.
+- We create the `gh-pages` branch
 - Go to the "Pages" section.
-- Select the gh-pages branch as your source.
-- Choose the folder where your documentation is located (/ if it's in the root of the branch)
+- Select gh-pages branch as source.
+- Choose the folder where the documentation is located

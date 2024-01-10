@@ -12,6 +12,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Set up JDK 21
+      uses: actions/setup-java@v2
+      with:
+        java-version: '21'
+        distribution: 'adopt'
+
     # Steps to build your documentation here
     - name: Build Documentation
       run: |
@@ -22,4 +28,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .spring-boot-jpa/target/site/apidocs/
+        publish_dir: ./spring-boot-jpa/target/site/apidocs
