@@ -7,7 +7,7 @@ Following this website https://choosealicense.com/, we opted for the most permis
 See the README.md on GitHub.
 
 ### 3. Add technical documentation to the code (see slides for what is a technical documentation)
-We focused only on the Java backend, since we don't know about javascript documentation yet.
+We focused only on the Java backend, since we don't know about javascript documentation yet, and due to lack of time.
 
 We can generate the java code by adding Javadoc comment strings beggining by `/** My doc comment */` above each fields and methods.
 

@@ -48,3 +48,11 @@ In the Github repository **settings**,  we create actions quite simply using `pe
 - Go to the "Pages" section.
 - Select gh-pages branch as source.
 - Choose the folder where the documentation is located
+
+Unfortunately, we couldn't publish the page correctly as the action encountered access errors:
+```
+  /usr/bin/git push origin gh-pages
+  remote: Permission to Almiinh/flashcard_webapp.git denied to github-actions[bot].
+  fatal: unable to access 'https://github.com/Almiinh/flashcard_webapp.git/': The requested URL returned error: 403
+  Error: Action failed with "The process '/usr/bin/git' failed with exit code 128"
+```

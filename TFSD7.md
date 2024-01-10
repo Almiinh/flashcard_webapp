@@ -53,3 +53,4 @@ docker run -p 6060 -e PORT=6060 flashcard_frontend
 
 ### 4. Create a multi-container Docker application with Docker Compose to deploy your Web application locally (back + front) and list the steps I need to follow to run this. The ports should be configurable as environment variables.
 
+We skipped this step due to lack of time
