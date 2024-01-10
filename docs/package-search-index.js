@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"spring.flashcard"},{"l":"spring.flashcard.controller"},{"l":"spring.flashcard.model"},{"l":"spring.flashcard.repository"}];updateSearchResults();
