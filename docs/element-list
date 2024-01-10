@@ -1,0 +1,4 @@
+spring.flashcard
+spring.flashcard.controller
+spring.flashcard.model
+spring.flashcard.repository
