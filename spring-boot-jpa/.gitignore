@@ -1,8 +1,6 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+target/*
+!target/*.jar
+!target/site/
 
 ### IntelliJ IDEA ###
 .idea
@@ -12,5 +10,4 @@ target/
 
 ### VS Code ###
 .vscode/
-
-/testdb.trace.db
+testdb.trace.db
