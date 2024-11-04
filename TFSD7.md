@@ -41,7 +41,7 @@ docker run -p 9090:9090 -e PORT=9090 flashcard_backend
 
 To run the docker container, execute the following commands:
 ```
-cd spring-boot-jpa/
+cd vue-3-crud/
 docker build -t flashcard_frontend .
 docker run -p 8081:80 flashcard_frontend
 ```
@@ -53,4 +53,8 @@ docker run -p 6060 -e PORT=6060 flashcard_frontend
 
 ### 4. Create a multi-container Docker application with Docker Compose to deploy your Web application locally (back + front) and list the steps I need to follow to run this. The ports should be configurable as environment variables.
 
-We skipped this step due to lack of time
+To run the docker container, open `Docker Desktop` then execute the following commands to run the `docker-compose.yml` file:
+```
+cd flashcard_webapp/
+docker compose up --build
+```
